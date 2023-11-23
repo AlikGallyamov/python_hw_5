@@ -1,4 +1,4 @@
-from selene import browser, have, be
+from selene import browser, have, be, query, command
 import pytest
 
 
@@ -32,3 +32,6 @@ def test_registration(window_size):
     browser.all('[class*=css-1t62lt9]>div').first.click()
     browser.element('[data-value="Delaware"]').click()
     browser.all('[class*=css-1t62lt9]>div').second.click()
+    browser.all('.css-r8u8y9>li').should(have.size(4)).second.click()
+    browser.element('.css-1gqubxi input').set_value('')
+
